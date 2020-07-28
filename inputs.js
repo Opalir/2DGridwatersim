@@ -25,7 +25,7 @@ document.getElementById('changeMode').addEventListener('input', function(e){
 });
 function getInputs(){
 	if(Lmousedown){
-		const pointSize = 10;
+		const pointSize = 5;
 		for(let i =0;i<pointSize;i++){
 			for(let j =0;j<pointSize;j++){
 				level[mouseGridX+i][mouseGridY+j] = LIQUID;
@@ -34,7 +34,7 @@ function getInputs(){
 		
 	}
 	if(Rmousedown){	
-		const pointSize = 5;
+		const pointSize = 3;
 		for(let i =-1;i<pointSize+1;i++){
 			for(let j =-1;j<pointSize+1;j++){
 				if(i>=0&&j>=0&&i<pointSize&&j<pointSize)nextLevel[mouseGridX+i][mouseGridY+j] = WALL;

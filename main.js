@@ -3,7 +3,7 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const TILE_SIZE = 3;
+const TILE_SIZE = 5;
 const GRID_WIDTH = Math.floor(canvas.width/TILE_SIZE);
 const GRID_HEIGHT = Math.floor(canvas.height/TILE_SIZE);
 
