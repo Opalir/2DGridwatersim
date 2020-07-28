@@ -3,7 +3,7 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const TILE_SIZE = 5;
+const TILE_SIZE = 3;
 const GRID_WIDTH = Math.floor(canvas.width/TILE_SIZE);
 const GRID_HEIGHT = Math.floor(canvas.height/TILE_SIZE);
 
@@ -18,8 +18,19 @@ let nextLevel = [];
 let lastRendered = [];
 let lastRenderedWalls = []; //only for marched
 let changedTile = []; //only for marched
+
+
+let fill = true;
+let tiled = true;
+
 init();
 
+ctx.fillStyle= "black";
+ctx.font= "10px Arial";
+ctx.fillText("Render mode : " + (tiled?"Normal":"Smoothed"),1,47);
+ctx.font= "15px Arial";
+ctx.fillText("Left click to add liquid",1,90);
+ctx.fillText("Right click to add wall",1,108);
 
 function update(){
 	let rand = Math.random();
@@ -30,7 +41,6 @@ function update(){
 	
 	for(let x =deb;cond(x);x+=add){
 		for(let y =GRID_HEIGHT-1;y>=0;y--){
-			if(x>=GRID_WIDTH-5)level[x][y]=LIQUID;
 			if(level[x][y] == LIQUID){	
 				let changed = false;
 				let goutteX = x;

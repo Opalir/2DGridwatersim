@@ -1,22 +1,17 @@
-let fill = true;
-let tiled = false;
+
 
 let wallCanvas = new OffscreenCanvas(canvas.width,canvas.height);
 let wallCtx = wallCanvas.getContext('2d');
 
 function render(){
+	
 	if(tiled){
 		renderTiled();
 	}else{
-	
 		renderMarched();
-		/*ctx.fillStyle="orange";
-		for(let x =0;x<GRID_WIDTH;x++){
-			for(let y =0;y<GRID_HEIGHT;y++){
-				if(changedTile[x][y]==1)ctx.fillRect(x*TILE_SIZE,y*TILE_SIZE,TILE_SIZE,TILE_SIZE);
-			}
-		}*/
 	}
+	
+	
 }
 function renderTiled(){
 	//ctx.fillStyle="black";
@@ -237,6 +232,13 @@ function calcMarch(type,ctx){
 function refresh(){
 	ctx.clearRect(0,0,canvas.width,canvas.height);
 	wallCtx.clearRect(0,0,canvas.width,canvas.height);
+	
+	ctx.fillStyle= "black";
+	ctx.font= "10px Arial";
+	ctx.fillText("Render mode : " + (tiled?"Normal":"Smoothed"),1,47);
+	ctx.font= "15px Arial";
+	ctx.fillText("Left click to add liquid",1,90);
+	ctx.fillText("Right click to add wall",1,108);
 	for(let x =0;x<GRID_WIDTH;x++){
 		for(let y =0;y<GRID_HEIGHT;y++){
 			lastRendered[x][y] = 0;
